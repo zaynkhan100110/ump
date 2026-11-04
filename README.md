@@ -1,6 +1,5 @@
 # UMP — Universal Media Downloader
 
-Repository: https://github.com/zaynkhan100110/ump
 
 UMP is a self-hostable web application built around [yt-dlp](https://github.com/yt-dlp/yt-dlp). It inspects public media URLs, lists available formats, queues downloads, streams progress, and lets authenticated users retrieve their own files.
 
@@ -215,7 +214,7 @@ These checks do not replace end-to-end tests against real sites or load tests on
 
 ## License / project terms
 
-Do not remove attribution or redistribute it in a way that violates the owner's terms.
+Do not remove attribution or redistribute it `LICENCE`
 
 
 ## Branding and browser icon
