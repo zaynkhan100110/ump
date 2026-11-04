@@ -10,7 +10,7 @@ UMP is a self-hostable web application built around [yt-dlp](https://github.com/
 
 This release adds account authentication, per-user job ownership, CSRF protection, persistent SQLite job records, bounded download and metadata worker pools, a persistent size-limited metadata cache, configurable timeouts, optional yt-dlp cookie support, URL paste normalization, automatic retention cleanup, and a redesigned responsive interface.
 
-**Important capacity boundary:** This is a hardened single-instance foundation, not a verified 5,000-user production service. SQLite and the in-process worker pool are suitable for a modest single-node deployment. The project has not yet been load-tested for 5,000 users or large simultaneous-download workloads. Do not run multiple UMP replicas against the same SQLite database and assume they form a distributed queue. A later scale-out phase should migrate job/account state to PostgreSQL, use Redis plus Celery/RQ for distributed workers, and use shared S3-compatible object storage. The 5,000+ target remains a design goal until that work and realistic load testing are complete.
+**Important capacity boundary:** This is a hardened single-instance foundation, SQLite and the in-process worker pool are suitable for a modest single-node deployment. The project has not yet been load-tested for large simultaneous-download workloads. Do not run multiple UMP replicas against the same SQLite database and assume they form a distributed queue. A later scale-out phase should migrate job/account state to PostgreSQL, use Redis plus Celery/RQ for distributed workers, and use shared S3-compatible object storage. The 5,000+ target remains a design goal until that work and realistic load testing are complete.
 
 ## Features
 
@@ -215,7 +215,7 @@ These checks do not replace end-to-end tests against real sites or load tests on
 
 ## License / project terms
 
-This repository is provided under the terms specified by its owner. Do not remove attribution or redistribute it in a way that violates the owner's terms. Add a formal `LICENSE` file before accepting external contributions or redistributing under an open-source license.
+Do not remove attribution or redistribute it in a way that violates the owner's terms.
 
 
 ## Branding and browser icon
