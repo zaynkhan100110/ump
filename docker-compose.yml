@@ -1,0 +1,45 @@
+services:
+  ump:
+    build: .
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:5000:8000"
+    environment:
+      UMP_SECRET_KEY: ${UMP_SECRET_KEY:?Set UMP_SECRET_KEY in .env}
+      UMP_COOKIE_SECURE: ${UMP_COOKIE_SECURE:-1}
+      UMP_TRUST_PROXY: ${UMP_TRUST_PROXY:-1}
+      UMP_ALLOW_REGISTRATION: ${UMP_ALLOW_REGISTRATION:-0}
+      UMP_MAX_CONCURRENT: ${UMP_MAX_CONCURRENT:-4}
+      UMP_MAX_QUEUED_JOBS: ${UMP_MAX_QUEUED_JOBS:-100}
+      UMP_MAX_USER_ACTIVE: ${UMP_MAX_USER_ACTIVE:-3}
+      UMP_MAX_DOWNLOAD_BYTES: ${UMP_MAX_DOWNLOAD_BYTES:-5368709120}
+      UMP_METADATA_TIMEOUT: ${UMP_METADATA_TIMEOUT:-150}
+      UMP_SOCKET_TIMEOUT: ${UMP_SOCKET_TIMEOUT:-30}
+      UMP_METADATA_CACHE_TTL: ${UMP_METADATA_CACHE_TTL:-900}
+      UMP_METADATA_CACHE_MAX_ENTRIES: ${UMP_METADATA_CACHE_MAX_ENTRIES:-500}
+      UMP_JOB_TTL_SECONDS: ${UMP_JOB_TTL_SECONDS:-3600}
+      UMP_DELETE_AFTER_DOWNLOAD: ${UMP_DELETE_AFTER_DOWNLOAD:-1}
+      UMP_DATA_DIR: /data
+      UMP_DOWNLOAD_DIR: /data/downloads
+      UMP_TEMP_DIR: /data/tmp
+      UMP_DATABASE_PATH: /data/ump.sqlite3
+      UMP_COOKIES_FILE: ${UMP_COOKIES_FILE:-}
+      LOG_LEVEL: ${LOG_LEVEL:-INFO}
+    volumes:
+      - ump-data:/data
+      # If using a cookie file, mount it read-only and set UMP_COOKIES_FILE to this path.
+      # - ./secrets/cookies.txt:/run/secrets/yt-cookies.txt:ro
+    init: true
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/api/health', timeout=5)"]
+      interval: 30s
+      timeout: 8s
+      retries: 3
+      start_period: 20s
+    deploy:
+      resources:
+        limits:
+          cpus: "4.0"
+          memory: 6G
+volumes:
+  ump-data:

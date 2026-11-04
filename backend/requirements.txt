@@ -1,0 +1,6 @@
+Flask>=3.0,<4.0
+yt-dlp[default,curl-cffi]>=2026.10.26
+gunicorn>=22,<24; platform_system != "Windows"
+platformdirs>=4.2,<5
+waitress>=3,<4; platform_system == "Windows"
+beautifulsoup4>=4.12,<5
