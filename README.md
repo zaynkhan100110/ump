@@ -29,10 +29,10 @@ This release adds account authentication, per-user job ownership, CSRF protectio
 - Bundled UMP SVG brand mark and browser-tab favicon.
 
 
-## ScreenShot (using <a href="https://github.com/zaynkhan100110/CyberShot">CyberShot</a>
+## ScreenShot (using <a href="https://github.com/zaynkhan100110/CyberShot">CyberShot</a>)
 
 
-## Login Page
+## Login Page (Landing Page)
 
 ![UMP Login Panel](https://github.com/spoilpetal/Picture_Vault/blob/main/ump/UMP_v1.0.0-rc1/login_page.png)
 
@@ -48,7 +48,8 @@ This release adds account authentication, per-user job ownership, CSRF protectio
 
 ![UMP Main Interface](https://github.com/spoilpetal/Picture_Vault/blob/main/ump/UMP_v1.0.0-rc1/main_interface.png)
 
-[Error](#error)
+
+- [Read How To Fix](#error)
 
 ### Registration Error
 
