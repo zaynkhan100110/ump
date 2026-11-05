@@ -214,7 +214,7 @@ These checks do not replace end-to-end tests against real sites or load tests on
 
 ## License / project terms
 
-Do not remove attribution or redistribute it `LICENCE`
+Do not remove attribution or redistribute it See [LICENSE](LICENSE) for details.
 
 
 ## Branding and browser icon
