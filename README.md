@@ -34,26 +34,26 @@ This release adds account authentication, per-user job ownership, CSRF protectio
 
 ## Login Page (Landing Page)
 
-![UMP Login Panel](https://github.com/spoilpetal/Picture_Vault/blob/main/ump/UMP_v1.0.0-rc1/login_page.png)
+![UMP Login Panel](https://raw.githubusercontent.com/spoilpetal/Picture_Vault/main/ump/UMP_v1.0.0-rc1/login_page.png)
 
 ### Account Create
 
-![UMP Account Create](https://github.com/spoilpetal/Picture_Vault/blob/main/ump/UMP_v1.0.0-rc1/account_create.png)
+![UMP Account Create](https://raw.githubusercontent.com/spoilpetal/Picture_Vault/main/ump/UMP_v1.0.0-rc1/account_create.png)
 
 ### Verify User
 
-![UMP Account Verify](https://github.com/spoilpetal/Picture_Vault/blob/main/ump/UMP_v1.0.0-rc1/check_user.png)  
+![UMP Account Verify](https://raw.githubusercontent.com/spoilpetal/Picture_Vault/main/ump/UMP_v1.0.0-rc1/check_user.png)  
  
 ### Main Interface
 
-![UMP Main Interface](https://github.com/spoilpetal/Picture_Vault/blob/main/ump/UMP_v1.0.0-rc1/main_interface.png)
+![UMP Main Interface](https://raw.githubusercontent.com/spoilpetal/Picture_Vault/main/ump/UMP_v1.0.0-rc1/main_interface.png)
 
 
 - [Read How To Fix](#error)
 
 ### Registration Error
 
-![UMP Account Create](https://github.com/spoilpetal/Picture_Vault/blob/main/ump/UMP_v1.0.0-rc1/account_create_error.png)
+![UMP Account Create](https://raw.githubusercontent.com/spoilpetal/Picture_Vault/main/ump/UMP_v1.0.0-rc1/account_create_error.png)
 
  
 
