@@ -28,6 +28,35 @@ This release adds account authentication, per-user job ownership, CSRF protectio
 - Rumble metadata extraction tries a configurable ordered list of browser impersonation profiles after HTTP 400/403 responses. Download requests use the first configured profile. Impersonation does not bypass access controls or guarantee that a site will allow the request.
 - Bundled UMP SVG brand mark and browser-tab favicon.
 
+
+## ScreenShot (using <a href="https://github.com/zaynkhan100110/CyberShot">CyberShot</a>
+
+
+## Login Page
+
+![UMP Login Panel](https://github.com/spoilpetal/Picture_Vault/blob/main/ump/UMP_v1.0.0-rc1/login_page.png)
+
+### Account Create
+
+![UMP Account Create](https://github.com/spoilpetal/Picture_Vault/blob/main/ump/UMP_v1.0.0-rc1/account_create.png)
+
+### Verify User
+
+![UMP Account Verify](https://github.com/spoilpetal/Picture_Vault/blob/main/ump/UMP_v1.0.0-rc1/check_user.png)  
+ 
+### Main Interface
+
+![UMP Main Interface](https://github.com/spoilpetal/Picture_Vault/blob/main/ump/UMP_v1.0.0-rc1/main_interface.png)
+
+[Error](#error)
+
+### Registration Error
+
+![UMP Account Create](https://github.com/spoilpetal/Picture_Vault/blob/main/ump/UMP_v1.0.0-rc1/account_create_error.png)
+
+ 
+
+
 ## Supported operating systems
 
 UMP is designed to run natively on **Windows 10/11, macOS (Intel and Apple Silicon), and Linux**. Docker Desktop is also supported on Windows and macOS; Docker Engine/Compose is supported on Linux. The web interface is accessed through a browser and does not require a platform-specific client.
@@ -185,7 +214,7 @@ The current code is deliberately single-instance. Before claiming support for th
 6. Load and soak tests with representative source URLs, file sizes, network limits, and failure scenarios.
 
 A 5,000-account target and 5,000 simultaneous downloads are very different capacity requirements. Define expected active-user percentage, concurrent downloads, average file size, retention, and bandwidth before sizing infrastructure.
-
+## Error
 ## Troubleshooting
 
 - **Secret-key startup error:** Set `UMP_SECRET_KEY` to a random value of at least 32 characters.
@@ -198,6 +227,34 @@ A 5,000-account target and 5,000 simultaneous downloads are very different capac
 - **Disk full:** Reduce `UMP_JOB_TTL_SECONDS`, delete old jobs, or expand the data volume. Back up before manual cleanup.
 - **Reddit/Bilibili or other login-required sources:** Configure `UMP_COOKIES_FILE` with a private Netscape-format cookie export, or `UMP_COOKIES_FROM_BROWSER` for a local installation with access to that browser profile. Do not commit cookies or expose them to other users. Reddit may require authentication; Bilibili may restrict quality or playback by region/account.
 - **Repeated metadata lookups:** UMP caches successful metadata separately from video files for 15 minutes by default. Set `UMP_METADATA_CACHE_TTL=0` to disable it.
+
+## For quick setup (1 account)
+Read the Docs before use !
+
+```bash
+python -m venv .venv
+source .venv/bin/activate
+python -m pip install --upgrade pip
+python -m pip install -r backend/requirements.txt
+
+python -c "import secrets; print(secrets.token_urlsafe(48))"
+
+export UMP_SECRET_KEY="YOUR_GENERATED_SECRET"
+export UMP_COOKIE_SECURE=0
+export UMP_ALLOW_REGISTRATION=1
+export UMP_MAX_CONCURRENT=3
+export UMP_METADATA_TIMEOUT=150
+export UMP_METADATA_CACHE_TTL=900
+export UMP_DELETE_AFTER_DOWNLOAD=1
+
+
+python -m compileall -q backend
+python -m unittest discover -s tests -v
+
+
+python backend/app.py
+
+```
 
 ## Development checks
 
